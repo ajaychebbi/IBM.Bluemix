@@ -30,8 +30,32 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WatsonConfiguration.cs" />
+    <Compile Include="Models\QA\QAResponse.cs" />
+    <Compile Include="Models\QA\QAService.cs" />
+    <Compile Include="Models\QA\QADatasetType.cs" />
+    <Compile Include="Models\QA\QAQuestion.cs" />
+    <Compile Include="QA\WatsonQA.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Bluemix.Core\Bluemix.Core.csproj">
+      <Project>{88D07FBF-C8EA-4BA1-88E1-12DEA991C65C}</Project>
+      <Name>Bluemix.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\QA\" />
+    <Folder Include="QA\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

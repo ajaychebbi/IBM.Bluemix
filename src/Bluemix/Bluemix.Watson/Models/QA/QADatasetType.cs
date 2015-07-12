@@ -2,11 +2,10 @@
 
 namespace Bluemix.Watson
 {
-	public class MyClass
+	public enum QADatasetType
 	{
-		public MyClass ()
-		{
-		}
+		Travel,
+		Healthcare
 	}
 }
 
