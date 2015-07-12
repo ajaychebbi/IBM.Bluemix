@@ -31,7 +31,7 @@ namespace Bluemix.Core
 			Credentials = credentials;
 			Credentials.UserAgent = Credentials.UserAgent ?? DefaultUserAgent;
 		}
-
+			
 		/// <summary>
 		/// Gets the async.
 		/// </summary>
@@ -77,10 +77,8 @@ namespace Bluemix.Core
 			return await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
 		}
 
-
 		private string GetCredentialString ()
 		{
-			
 			return string.Format ("{0} {1}", "Basic", GetBase64CredentialString ());
 		}
 

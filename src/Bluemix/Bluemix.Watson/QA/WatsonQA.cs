@@ -25,7 +25,7 @@ namespace Bluemix.Watson
 		/// Returns the list of supported Watson Q&amp;A domains
 		/// </summary>
 		/// <returns>The services async.</returns>
-		public async Task<IList<QAService>> GetServicesAsync ()
+		public async Task<IList<QAService>> GetServices ()
 		{
 			const string apiPath = "/v1/services";
 			var responseMessage = await client.GetAsync (new Request (watsonConfiguration, apiPath));
