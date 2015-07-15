@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Bluemix.Core;
 using System.Collections.Generic;
+using Bluemix.Watson;
 
 namespace Bluemix.Watson
 {
@@ -49,7 +50,7 @@ namespace Bluemix.Watson
 		/// </summary>
 		/// <param name="question">Question.</param>
 		/// <param name="type">Type.</param>
-		public async Task<QAResponse> Ask (QAQuestion question, QADatasetType type)
+		public async Task<List<QAResponse>> Ask (QAQuestion question, QADatasetType type)
 		{
 			// currently watson supports only two types
 			string datasetType = "travel";
@@ -60,8 +61,8 @@ namespace Bluemix.Watson
 										watsonConfiguration.BasePath, 
 										watsonConfiguration.ResourcePath, "/v1/question/", datasetType); 
 			var questionJson = JsonConvert.SerializeObject (question, Formatting.None, new JsonSerializerSettings{ NullValueHandling = NullValueHandling.Ignore });
-			var response = await client.PostAsync (url, questionJson);
-			return await Task.Run (() => JsonConvert.DeserializeObject<QAResponse> (response));
+			var response = await client.PostAsync (url, questionJson).ConfigureAwait(false);
+			return await Task.Run (() => JsonConvert.DeserializeObject<List<QAResponse>> (response));
 		}
 
 	}
