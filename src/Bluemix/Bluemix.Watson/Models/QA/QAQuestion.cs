@@ -47,7 +47,7 @@ namespace Bluemix.Watson
         public int Items { get; set; }
 
         [JsonProperty("evidenceRequest")]
-        public EvidenceRequest EvidenceRequest { get; set; }
+		public EvidenceRequest EvidenceRequest { get; set; }
 
         [JsonProperty("answerAssertion")]
         public string AnswerAssertion { get; set; }

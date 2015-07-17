@@ -37,9 +37,9 @@ namespace Bluemix.Tests
 			var wqa = new WatsonQA (new Credentials (userName: "9f8a37cf-a0ce-41b6-a2ad-87d6e5392db1",
 				password: "6BAHrlmMBFlT"));
 
-			var responseMessage = await wqa.Ask (new QAQuestion{ Question= new Question{ QuestionText="How big is Africa?", Items =1 } }, QADatasetType.Travel);
+			var responseMessage = await wqa.Ask (new QAQuestion{ Question= new Question{ QuestionText="Places to see in NYC", Items=1, EvidenceRequest=  new EvidenceRequest{ Items = 1}, FormattedAnswer=true } }, QADatasetType.Travel);
 
-			Assert.NotNull (responseMessage.Answers.Answers.Count > 0);
+			Assert.NotNull (responseMessage[0].Question.Answers.Count > 0);
 		}
 	}
 }

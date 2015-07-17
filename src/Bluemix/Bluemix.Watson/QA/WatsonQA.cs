@@ -60,7 +60,9 @@ namespace Bluemix.Watson
 			string url = string.Format ("{0}{1}{2}{3}", 
 										watsonConfiguration.BasePath, 
 										watsonConfiguration.ResourcePath, "/v1/question/", datasetType); 
+			//var questionJson =  @"{""question"":{""questionText"":""Places to see in NYC"",""evidenceRequest"":{""items"":1}}}";//
 			var questionJson = JsonConvert.SerializeObject (question, Formatting.None, new JsonSerializerSettings{ NullValueHandling = NullValueHandling.Ignore });
+				
 			var response = await client.PostAsync (url, questionJson).ConfigureAwait(false);
 			return await Task.Run (() => JsonConvert.DeserializeObject<List<QAResponse>> (response));
 		}
