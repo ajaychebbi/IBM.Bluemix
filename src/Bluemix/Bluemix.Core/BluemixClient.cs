@@ -10,7 +10,7 @@ namespace Bluemix.Core
 	/// <summary>
 	/// Bluemix client.
 	/// </summary>
-	public class WatsonClient
+	public class BluemixClient
 	{
 		internal const string DefaultUserAgent = "Bluemix-net-client/0.1";
 		internal const string DefaultContentType = "application/json";
@@ -24,7 +24,7 @@ namespace Bluemix.Core
 		/// Initializes a new instance of the <see cref="Bluemix.Core.WatsonClient"/> class.
 		/// </summary>
 		/// <param name="credentials">Credentials.</param>
-		public WatsonClient (ICredentials credentials)
+		public BluemixClient (ICredentials credentials)
 		{
 			if (credentials == null)
 				throw new ArgumentNullException ("credentials");

@@ -10,7 +10,7 @@ namespace Bluemix.Watson
 	public class WatsonQA
 	{
 		readonly WatsonConfiguration watsonConfiguration;
-		readonly WatsonClient client;
+		readonly BluemixClient client;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Bluemix.Watson.WatsonQA"/> class.
@@ -18,7 +18,7 @@ namespace Bluemix.Watson
 		public WatsonQA (ICredentials credentials)
 		{
 			watsonConfiguration = new WatsonConfiguration ();
-			client = new WatsonClient (credentials);
+			client = new BluemixClient (credentials);
 
 		}
 
@@ -60,7 +60,6 @@ namespace Bluemix.Watson
 			string url = string.Format ("{0}{1}{2}{3}", 
 										watsonConfiguration.BasePath, 
 										watsonConfiguration.ResourcePath, "/v1/question/", datasetType); 
-			//var questionJson =  @"{""question"":{""questionText"":""Places to see in NYC"",""evidenceRequest"":{""items"":1}}}";//
 			var questionJson = JsonConvert.SerializeObject (question, Formatting.None, new JsonSerializerSettings{ NullValueHandling = NullValueHandling.Ignore });
 				
 			var response = await client.PostAsync (url, questionJson).ConfigureAwait(false);

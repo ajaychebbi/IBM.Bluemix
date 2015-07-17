@@ -35,7 +35,7 @@
     <Compile Include="Auth\ICredentials.cs" />
     <Compile Include="Auth\Credentials.cs" />
     <Compile Include="Request.cs" />
-    <Compile Include="WatsonClient.cs" />
+    <Compile Include="BluemixClient.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
