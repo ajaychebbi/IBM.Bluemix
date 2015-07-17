@@ -30,6 +30,7 @@ namespace Bluemix.Watson
 		{
 			const string apiPath = "/v1/services";
 			var responseMessage = await client.GetAsync (new Request (watsonConfiguration, apiPath));
+			//Returns an Array
 			return await Task.Run (() => JsonConvert.DeserializeObject<IList<QAService>> (responseMessage));
 		}
 
@@ -63,6 +64,7 @@ namespace Bluemix.Watson
 			var questionJson = JsonConvert.SerializeObject (question, Formatting.None, new JsonSerializerSettings{ NullValueHandling = NullValueHandling.Ignore });
 				
 			var response = await client.PostAsync (url, questionJson).ConfigureAwait(false);
+		        //Returns an Array
 			return await Task.Run (() => JsonConvert.DeserializeObject<List<QAResponse>> (response));
 		}
 
