@@ -32,10 +32,14 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
     <Compile Include="Tests\Watson\WatsonQATest.cs" />
+    <Compile Include="Tests\Cloudant\CloudantSearchTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -48,13 +52,21 @@
     <Folder Include="Tests\Watson\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bluemix.Core\Bluemix.Core.csproj">
+      <Project>{88D07FBF-C8EA-4BA1-88E1-12DEA991C65C}</Project>
+      <Name>Bluemix.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bluemix.Cloudant\Bluemix.Cloudant.csproj">
+      <Project>{84E57936-9AF4-4207-9F1C-92EB63856371}</Project>
+      <Name>Bluemix.Cloudant</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bluemix.Watson\Bluemix.Watson.csproj">
       <Project>{C2FF777C-6348-4D10-8B1C-80521DB6862E}</Project>
       <Name>Bluemix.Watson</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bluemix.Core\Bluemix.Core.csproj">
-      <Project>{88D07FBF-C8EA-4BA1-88E1-12DEA991C65C}</Project>
-      <Name>Bluemix.Core</Name>
+    <ProjectReference Include="..\Bluemix.Alchemy\Bluemix.Alchemy.csproj">
+      <Project>{D11133DD-844F-4559-859B-144C1DBAB93B}</Project>
+      <Name>Bluemix.Alchemy</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -73,8 +73,8 @@ namespace Bluemix.Core
 				throw new ArgumentNullException("configuration");
 			if (string.IsNullOrEmpty (configuration.BasePath))
 				throw new ArgumentException ("configuration.BasePath cannot be null or empty");
-			if (string.IsNullOrEmpty (configuration.ResourcePath))
-				throw new ArgumentException ("configuration.ResourcePath cannot be null or empty");
+			//if (string.IsNullOrEmpty (configuration.ResourcePath))
+			//	throw new ArgumentException ("configuration.ResourcePath cannot be null or empty");
 			
 			if (string.IsNullOrEmpty (apiPath))
 				throw new ArgumentException ("apiPath cannot be null or empty");

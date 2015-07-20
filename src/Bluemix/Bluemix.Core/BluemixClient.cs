@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net;
+
 using System.Text;
 using System.Net.Http.Headers;
+
 
 namespace Bluemix.Core
 {
@@ -40,8 +42,7 @@ namespace Bluemix.Core
 		public async Task<string> GetAsync (Request request)
 		{
 			//TODO: Handle HTTP Errors
-			var requestMessage = new HttpRequestMessage (HttpMethod.Get, new Uri (request.FullUrl));
-
+			HttpRequestMessage requestMessage = new HttpRequestMessage (HttpMethod.Get, new Uri (request.FullUrl));
 			requestMessage.Headers.Add ("Authorization", GetCredentialString ());
 			using (var client = new HttpClient ()) {
 				client.DefaultRequestHeaders.Accept.Clear ();
@@ -50,6 +51,7 @@ namespace Bluemix.Core
 					client.Timeout = new TimeSpan (0, 0, 0, request.Timeout);
 				
 				var response = await client.SendAsync (requestMessage).ConfigureAwait (false);
+
 				return await HandleResponseAsync (response);
 			}
 		}
@@ -86,6 +88,8 @@ namespace Bluemix.Core
 		{
 			var auth = string.Format ("{0}:{1}", Credentials.UserName, Credentials.Password);
 			return Convert.ToBase64String (Encoding.UTF8.GetBytes (auth));
+			//return auth;
+
 		}
 	}
 }
