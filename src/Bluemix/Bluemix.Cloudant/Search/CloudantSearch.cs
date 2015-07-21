@@ -47,7 +47,7 @@ namespace Bluemix.Cloudant
 		/// </summary>
 		/// <returns>The doc by identifier.</returns>
 		/// <param name="dbName">Db name.</param>
-		/// <param name="searchValue">id.</param>
+		/// <param name="id">id.</param>
 		public async Task<JObject> GetById(String dbName,String id)
 		{
 			String apiPath = String.Format("/{0}/{1}",dbName,id);
