@@ -33,6 +33,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CloudantConfiguration.cs" />
     <Compile Include="Search\CloudantSearch.cs" />
+    <Compile Include="Search\SearchResult.cs" />
+    <Compile Include="Datasource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
