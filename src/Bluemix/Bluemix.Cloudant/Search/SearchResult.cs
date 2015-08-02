@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace Bluemix.Cloudant
@@ -10,13 +11,13 @@ namespace Bluemix.Cloudant
 	public class SearchResult
 	{
 		[JsonProperty("total_rows")]
-		public long TotalRows { get; set; }
+		public long TotalRows{ get; set; }
 
 		[JsonProperty("offset")]
 		public long Offset { get; set; }
 
 		[JsonProperty("rows")]
-		public IList<ResultRow> ResultRows { get; set;}
+		public IList<ResultRow> Rows { get; set;}
 
 	}
 
@@ -30,7 +31,10 @@ namespace Bluemix.Cloudant
 		public string Key { get; set; }
 
 		[JsonProperty("value")]
-		public JsonObjectAttribute Value { get; set; }
+		public JObject Value { get; set; }
+
+		[JsonProperty("error")]
+		public string Error { get; set; }
 	}
 }
 
