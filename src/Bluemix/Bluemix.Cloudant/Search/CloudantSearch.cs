@@ -34,16 +34,24 @@ namespace Bluemix.Cloudant
 		/// </summary>
 		/// <returns>Search Result Rows.</returns>
 		/// <param name="dbName">Db name.</param>
-		/// <param name="searchValue">Search value.</param>
-		public async Task<SearchResult> SearchById(String searchValue)
+		/// <param name="SearchValue">Search value.</param>
+		/// <param name="Limit">Optionally, Keep your result set to a certain size.</param>
+		/// <param name="Skip">Optionally, If you want to offset your result set (for example to paginate through some rows).</param>
+		public async Task<SearchResult> SearchById(String SearchValue,int Limit=-1, int Skip=-1)
 		{
-			String apiPath = String.Format("/{0}{1}/?keys=[\"{2}\"]",_ds.DatabaseName,primaryIndexURI,searchValue);
+			String apiPath = String.Format("/{0}{1}/?keys=[\"{2}\"]",_ds.DatabaseName,primaryIndexURI,SearchValue);
+			if (Limit !=-1)
+				apiPath += String.Format("&limit={0}",Limit);
+			if (Skip !=-1)
+				apiPath += String.Format("&skip={0}",Skip);
+
 			Request req = new Request (cloudantConfiguration, apiPath);
 
 			var responseMessage = await client.GetAsync(req);
 			SearchResult retval = JsonConvert.DeserializeObject<SearchResult>(responseMessage);
 			return retval;
 		}
+
 		/// <summary>
 		/// Gets the document by identifier.
 		/// </summary>
